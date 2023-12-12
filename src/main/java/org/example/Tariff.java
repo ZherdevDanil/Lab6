@@ -1,7 +1,10 @@
 package org.example;
 
+import org.example.lab7.TariffSet;
+
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 public abstract class Tariff {
 
@@ -35,7 +38,7 @@ public abstract class Tariff {
                         ", numberOfClients=" + numberOfClients;
     }
 
-    public static int getNumberOfUsers(Tariff[] tariffs) {
+    public static int getNumberOfUsers(TariffSet tariffs) {
         int numberOfAllUsers = 0;
         for (Tariff tariff : tariffs) {
             numberOfAllUsers += tariff.getNumberOfClients();
@@ -43,7 +46,7 @@ public abstract class Tariff {
         return numberOfAllUsers;
     }
 
-    public static Tariff[] getTariffsByMonthlyFeeSelectDiapason(Tariff[] tariffs, int leftDiapasonEdge, int rightDiapasonEdge) {
+    public static Tariff[] getTariffsByMonthlyFeeSelectDiapason(TariffSet tariffs, int leftDiapasonEdge, int rightDiapasonEdge) {
         List<Tariff> valideTariffs = new ArrayList<>();
         for (Tariff tariff : tariffs) {
             if (tariff.getMonthlyFee() >= leftDiapasonEdge && tariff.getMonthlyFee() <= rightDiapasonEdge) {

@@ -2,7 +2,7 @@ package org.example;
 
 import java.util.Comparator;
 
-public class MonthlyFeeComparator implements Comparator<Tariff> {
+public class MonthlyFeeComparator<E> implements Comparator<Tariff> {
     @Override
     public int compare(Tariff o1, Tariff o2) {
         if (o1.getMonthlyFee() == o2.getMonthlyFee()) {
