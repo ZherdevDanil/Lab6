@@ -7,6 +7,7 @@ import org.example.Tariff;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 
@@ -125,6 +126,19 @@ class TariffSetTest {
         tariffArray = tariffSet.toArray(tariffArray);
         assertEquals(tariff1,tariffArray[0]);
         assertEquals(tariff2,tariffArray[1]);
+    }
+    @Test
+    public void testIterator(){
+        tariffSet.add(tariff1);
+        tariffSet.add(tariff2);
+        tariffSet.add(tariff3);
+        Iterator<Tariff> iterator = tariffSet.iterator();
+        assertTrue(iterator.hasNext());
+        assertEquals(tariff1,iterator.next());
+        assertTrue(iterator.hasNext());
+        assertEquals(tariff2,iterator.next());
+        iterator.remove();
+        assertFalse(tariffSet.contains(tariff3));
     }
 
 }
